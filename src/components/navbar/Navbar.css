@@ -1,0 +1,23 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #222;
+  color: white;
+}
+
+h2 {
+  margin: 0.5rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.right {
+  font-weight: bold;
+  margin: 0.5rem;
+}
