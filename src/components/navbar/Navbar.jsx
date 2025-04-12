@@ -1,11 +1,10 @@
 import "./Navbar.css";
 import Token from "../../utils/token";
 import Button from "react-bootstrap/Button";
+import { formatPrice } from "../../utils/FormatPrice";
 
 function Navbar() {
-  let num = 25000;
-  const total = num.toLocaleString();
-
+  const total = 25000;
   return (
     <>
       <nav className="navbar">
@@ -15,7 +14,7 @@ function Navbar() {
           <Token />
         </div>
         <div className="right">
-          <Button variant="outline-primary">🛒 Total: ${total}</Button>
+          <Button variant="outline-primary">🛒 Total: ${formatPrice(total)}</Button>
         </div>
       </nav>
     </>
