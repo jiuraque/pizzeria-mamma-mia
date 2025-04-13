@@ -1,0 +1,60 @@
+.card-pizza {
+    width: 100%;
+    max-width: 300px; 
+    height: 500px;
+    margin: 10px;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }  
+
+  .pizza-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px; 
+  }
+  
+  .pizza-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .card-ingredients {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #555;
+  }
+  
+  .card-price {
+    font-size: 1.5rem;
+    color: black;
+    margin-top: 1rem;
+  }
+  
+  .divider {
+    border-top: 1px solid #343131;
+    width: 100%;
+    margin: 0.5rem auto;
+  }
+  
+  .fixed-btn {
+    width: 100px;
+  }
+  

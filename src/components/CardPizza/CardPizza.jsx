@@ -1,31 +1,33 @@
-import { Card, Button } from 'react-bootstrap';
+import React from 'react';
 import { formatPrice } from '../../utils/FormatPrice';
+import './CardPizza.css';
+
+
 
 const CardPizza = ({ name, price, ingredients, img }) => {
   return (
-    <div className="col-md-4 mb-4">
-      <Card>
-        <Card.Img variant="top" src={img} />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>
-            <strong>Ingredientes:</strong>
-            <ul>
-              {ingredients.map((ing, index) => (
-                <li key={index}>{ing}</li>
-              ))}
-            </ul>
-            <strong>Precio:</strong> ${formatPrice(price)}
-          </Card.Text>
-          <div className="d-flex justify-content-between">
-            <Button variant="outline-dark"> 👀 Ver más</Button>
-            <Button variant="dark"> 🛒 Añadir</Button>
-          </div>
-        </Card.Body>
-      </Card>
+    <div className="card card-pizza shadow-sm">
+      <img src={img} className="card-img-top pizza-img" alt={name} />
+      <div className="card-body d-flex flex-column justify-content-between">
+        <div className="pizza-info text-center">
+          <h5 className="card-title">{name}</h5>
+
+          <hr className="divider" />
+
+          <p className="card-ingredients">🍕 {ingredients.join(', ')}</p>
+
+          <hr className="divider" />
+
+          <p className="card-price"><strong>Precio:</strong> ${formatPrice(price)}</p>
+        </div>
+
+        <div className="d-flex justify-content-between">
+          <button className="btn btn-outline-dark btn-sm fixed-btn">Ver más 👀</button>
+          <button className="btn btn-dark btn-sm fixed-btn">Añadir 🛒</button>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default CardPizza;
-
