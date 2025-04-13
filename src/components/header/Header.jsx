@@ -3,6 +3,7 @@ import headerImg from '../../assets/imgs/Header.jpg';
 
 const Header = () => {
   return (
+    <>
     <header
       className="header-container d-flex justify-content-center align-items-center text-center"
       style={{ backgroundImage: `url(${headerImg})` }}
@@ -15,6 +16,7 @@ const Header = () => {
         <hr className="border-white" />
       </div>
     </header>
+    </>
   );
 };
 

@@ -8,6 +8,7 @@ function Navbar() {
   const total = 25000;
 
   return (
+    <>
     <BsNavbar expand="md" bg="dark" variant="dark" className="px-4 py-3">
       <Container fluid>
         <BsNavbar.Brand href="#">Pizzería Mamma Mía!</BsNavbar.Brand>
@@ -27,6 +28,7 @@ function Navbar() {
         </BsNavbar.Collapse>
       </Container>
     </BsNavbar>
+    </>
   );
 }
 

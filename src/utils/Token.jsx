@@ -9,6 +9,7 @@ function Token() {
   };
 
   return (
+    <>
     <div>
       {activo ? (
         <>
@@ -46,6 +47,7 @@ function Token() {
         </>
       )}
     </div>
+    </>
   );
 }
 

@@ -2,6 +2,7 @@ import CardPizza from "../cardPizza/cardPizza";
 
 const Home = () => {
   return (
+    <>
     <div className="container mt-4">
     <div className="row justify-content-center">
       <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-4">
@@ -30,6 +31,7 @@ const Home = () => {
       </div>
     </div>
   </div>
+  </>
   );
 };
 
