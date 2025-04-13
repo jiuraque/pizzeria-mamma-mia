@@ -18,8 +18,8 @@ const CardPizza = ({ name, price, ingredients, img }) => {
             <strong>Precio:</strong> ${formatPrice(price)}
           </Card.Text>
           <div className="d-flex justify-content-between">
-            <Button variant="primary">Ver más</Button>
-            <Button variant="success">Añadir más</Button>
+            <Button variant="outline-dark"> 👀 Ver más</Button>
+            <Button variant="dark"> 🛒 Añadir</Button>
           </div>
         </Card.Body>
       </Card>
