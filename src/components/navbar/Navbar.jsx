@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import Token from '../../utils/Token';
+import Token from '../../utils/TokenButton';
 import Button from "react-bootstrap/Button";
 import { formatPrice } from "../../utils/FormatPrice";
 import { Navbar as BsNavbar, Nav, Container } from "react-bootstrap";
