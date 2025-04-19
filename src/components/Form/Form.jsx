@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Form.css";
 
 const Form = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ const Form = () => {
       <form className="formulario" onSubmit={validarDatos}>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
         <div className="form-group">
-          <label>Email</label>
+          <label>Ingresa tu Email:</label>
           <input
             type="email"
             name="email"
@@ -44,7 +45,7 @@ const Form = () => {
           />
         </div>
         <div className="form-group">
-          <label>Contraseña</label>
+          <label>Ingresa tu Contraseña: </label>
           <input
             type="password"
             className="form-control"
@@ -53,7 +54,7 @@ const Form = () => {
           />
         </div>
         <div className="form-group">
-          <label>Confirmar Contraseña</label>
+          <label>Confirma tu Contraseña:</label>
           <input
             type="password"
             className="form-control"
