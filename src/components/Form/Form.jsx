@@ -4,31 +4,35 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [confirmarContraseña, setConfirmarContraseña] = useState("");
-
-  const [error, setError] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState("");
+  
   const validarDatos = (e) => {
     e.preventDefault();
-
+  
     if (!email.trim() || !contraseña.trim() || !confirmarContraseña.trim()) {
-      setError(true);
+      setErrorMessage("Todos los campos son obligatorios");
       return;
     }
-
-    setError(false);
-    console.log("Datos enviados correctamente");
-
-    // limpiar campos
-    setEmail("");
-    setContraseña("");
-    setConfirmarContraseña("");
+  
+    if (contraseña.length < 6) {
+      setErrorMessage("La contraseña debe tener al menos 6 caracteres");
+      return;
+    }
+  
+    if (contraseña !== confirmarContraseña) {
+      setErrorMessage("Las contraseñas no coinciden");
+      return;
+    }
+  
+    setErrorMessage("");
+    console.log("Formulario enviado correctamente");
   };
 
 
   return (
     <>
       <form className="formulario" onSubmit={validarDatos}>
-        {error ? <p>Todos los campos son obligatorios</p> : null}
+        {errorMessage && <p className="text-danger">{errorMessage}</p>}
         <div className="form-group">
           <label>Email</label>
           <input
@@ -57,7 +61,7 @@ const Form = () => {
             value={confirmarContraseña}
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-dark">
           Enviar
         </button>
       </form>
