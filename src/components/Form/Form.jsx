@@ -18,7 +18,7 @@ const Form = () => {
     setError(false);
     console.log("Datos enviados correctamente");
 
-    
+    // limpiar campos
     setEmail("");
     setContraseña("");
     setConfirmarContraseña("");
