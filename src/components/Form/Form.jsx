@@ -7,18 +7,23 @@ const Form = () => {
 
   const [error, setError] = useState(false);
 
-  const validacion = (e) => {
+  const validarDatos = (e) => {
     e.preventDefault();
+
+    if (!email.trim() || !contraseña.trim() || !confirmarContraseña.trim()) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+    console.log("Datos enviados correctamente");
+
+    
+    setEmail("");
+    setContraseña("");
+    setConfirmarContraseña("");
   };
 
-  if (!email.trim() || !contraseña.trim() || !confirmarContraseña.trim()) {
-    setError(true);
-    return;
-  }
-  setError(false);
-  setEmail("");
-  setContraseña("");
-  setConfirmarContraseña("");
 
   return (
     <>
