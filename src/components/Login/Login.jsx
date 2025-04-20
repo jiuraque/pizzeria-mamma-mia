@@ -28,6 +28,7 @@ const Login = () =>{
         <>
           <form className="formulario" onSubmit={validarDatos}>
             {errorMessage && <p className="text-danger">{errorMessage}</p>}
+            <h1>Login</h1>
             <div className="form-group">
               <label>Ingresa tu Email:</label>
               <input

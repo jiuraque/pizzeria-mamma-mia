@@ -6,6 +6,11 @@
     min-height: 100vh;
 }
 
+.formulario h1 {
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+}
+
 
 .form-group {
     display: flex;
