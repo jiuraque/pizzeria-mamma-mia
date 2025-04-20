@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./Form.css";
+import "./Registro.css";
 
-const Form = () => {
+const Registro = () => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [confirmarContraseña, setConfirmarContraseña] = useState("");
@@ -70,4 +70,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Registro;

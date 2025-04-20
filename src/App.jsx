@@ -2,8 +2,8 @@ import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Header from "./components/header/Header";
 import Home from "./components/home/home";
-import Form from "./components/Form/Form";
 import Footer from './components/Footer/Footer';
+import Registro from "./components/Registro/Registro";
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       {/* <Header /> */}
      {/*  <Home /> */}
-     <Form />
+     <Registro />
       <Footer />
     </>
   );
