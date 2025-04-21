@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 function App() {
   return (
     <>
+    <BrowserRouter>
       <Navbar />
       <Header />
       <Home />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
       </Routes>
       <Footer />
+    </BrowserRouter>
     </>
   );
 }
