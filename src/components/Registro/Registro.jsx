@@ -26,7 +26,7 @@ const Registro = () => {
     }
   
     setErrorMessage("");
-    alert("Formulario enviado correctamente");
+    alert("¡Formulario enviado correctamente!");
   };
 
 
