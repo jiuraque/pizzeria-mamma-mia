@@ -12,7 +12,7 @@ function App() {
     <>
     <BrowserRouter>
       <Navbar />
-      <Header />
+      {/* <Header /> */}
       {/* <Home /> */}
       <Routes>
         <Route path="/Registro" element={<Registro />} />
