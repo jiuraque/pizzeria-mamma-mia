@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Header />
-      <Home />
+      {/* <Home /> */}
       <Routes>
         <Route path="/Registro" element={<Registro />} />
         <Route path="/Login" element={<Login />} />
