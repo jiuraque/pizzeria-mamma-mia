@@ -20,7 +20,7 @@ const Login = () => {
       setErrorMessage("");
     }
 
-    if (contraseña === 123456) {
+    if (contraseña == 123456) {
       alert("¡Bienvenido!");
     } else {
       alert("Error: Los datos son incorrectos");
