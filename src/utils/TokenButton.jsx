@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 
 function Token() {
@@ -7,6 +8,8 @@ function Token() {
   const handleClick = () => {
     setActivo(!activo);
   };
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -33,14 +36,14 @@ function Token() {
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={handleClick}
+            onClick={() => navigate('/Login')}
           >
             🔐 Login
           </Button>
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={handleClick}
+            onClick={() => navigate('/Registro')}
           >
             🔐 Register
           </Button>
