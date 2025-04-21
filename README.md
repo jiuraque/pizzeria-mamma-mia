@@ -1,3 +1,3 @@
-# Desafío React 1 - Pizzeria Mamma Mía 
+# Desafío React 2 - Pizzeria Mamma Mía 
 
-En este proyecto se aplico a todo lo aprendido en la primera unidad de React: se aprendieron conceptos sobre qué es React, se creó el proyecto con vite, se crearon componentes utilizando props y se crearon utils para ser reutilizados en distintos componentes. 
+En este proyecto se realiza un formulario de registro y uno de login para poder aplicar los conocimientos de los estados de los componentes y los eventos. 

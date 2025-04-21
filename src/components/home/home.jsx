@@ -1,4 +1,4 @@
-import CardPizza from "../cardPizza/cardPizza";
+import CardPizza from '../CardPizza/CardPizza'
 
 const Home = () => {
   return (
