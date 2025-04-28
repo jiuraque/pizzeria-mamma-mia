@@ -1,28 +1,42 @@
 import { useState } from "react";
 import { pizzaCart as initialCart } from "../../data/pizzas";
-import './Cart.css';
+import "./Cart.css";
 
 const Cart = () => {
   const [cart, setCart] = useState(initialCart);
 
+
   const aumentar = (id) => {
-    setCart(cart.map(p =>
-      p.id === id ? { ...p, count: p.count + 1 } : p
-    ));
+    const nuevoCarrito = cart.map((pizza) => {
+      if (pizza.id === id) {
+        return { ...pizza, count: pizza.count + 1 };
+      }
+      return pizza;
+    });
+    setCart(nuevoCarrito);
   };
+
 
   const disminuir = (id) => {
-    setCart(cart
-      .map(p => p.id === id ? { ...p, count: p.count - 1 } : p)
-      .filter(p => p.count > 0)
-    );
+    const nuevoCarrito = cart
+      .map((pizza) => {
+        if (pizza.id === id) {
+          return { ...pizza, count: pizza.count - 1 };
+        }
+        return pizza;
+      })
+      .filter((pizza) => pizza.count > 0);
+
+    setCart(nuevoCarrito);
   };
 
-  const total = cart.reduce((acc, p) => acc + p.price * p.count, 0);
+
+  const total = cart.reduce((suma, pizza) => suma + pizza.price * pizza.count, 0);
 
   return (
     <div className="cart">
       <h2>🛒 Carrito</h2>
+
       {cart.map((pizza) => (
         <div key={pizza.id} className="cart-item">
           <img src={pizza.img} alt={pizza.name} width="80" />
@@ -35,6 +49,7 @@ const Cart = () => {
           </div>
         </div>
       ))}
+
       <h3>Total: ${total.toLocaleString()}</h3>
       <button className="btn btn-dark">Pagar</button>
     </div>
