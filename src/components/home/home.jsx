@@ -4,13 +4,15 @@ import CardPizza from "../CardPizza/CardPizza";
 function Home() {
   return (
     <div className="contenedor-pizza">
-      {pizzas.map((pizza, index) => (
+      {pizzas.map((pizza) => (
         <CardPizza
-          key={index}
-          img={pizza.imagen}
-          ingredients={pizza.ingredients}
-          name={pizza.nombre}
-          price={pizza.precio}
+        key={pizza.id}
+        id={pizza.id}
+        name={pizza.name}
+        price={pizza.price}
+        img={pizza.img}
+        ingredients={pizza.ingredients}
+        desc={pizza.desc}
         />
       ))}
     </div>
