@@ -36,7 +36,7 @@ const Cart = () => {
         </div>
       ))}
       <h3>Total: ${total.toLocaleString()}</h3>
-      <button className="btn btn-success">Pagar</button>
+      <button className="btn btn-dark">Pagar</button>
     </div>
   );
 };
