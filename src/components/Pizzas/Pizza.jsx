@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
-import CardPizza from "../CardPizza/CardPizza";
+import CardPizza from '../CardPizza/CardPizza';
 
-function Home() {
-  const [pizzas, setPizzas] = useState([]);
+
+ function Pizza() {
+  const [pizza, setPizza] = useState([]);
 
   const consulApi = async () => {
-    const url = "http://localhost:5000/api/pizzas";
+    const url = "http://localhost:5000/api/pizzas/p001";
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
-    setPizzas(data)
+    setPizza(data)
   };
 
   useEffect(() => {
@@ -18,7 +19,6 @@ function Home() {
 
   return (
     <div className="contenedor-pizza">
-      {pizzas.map((pizza) => (
         <CardPizza
           key={pizza.id}
           id={pizza.id}
@@ -28,9 +28,13 @@ function Home() {
           ingredients={pizza.ingredients}
           desc={pizza.desc}
         />
-      ))}
     </div>
   );
 }
 
-export default Home;
+
+
+
+
+
+export default Pizza;
