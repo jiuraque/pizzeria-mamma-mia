@@ -1,6 +1,6 @@
 .card-pizza {
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   flex: 1 1 300px; 
   height: 500px;
   margin: 10px;
@@ -32,7 +32,7 @@
   }
   
   .card-title {
-    font-size: 1.2rem;
+    font-size: 3rem;
     font-weight: bold;
   }
   
@@ -46,13 +46,12 @@
   .card-price {
     font-size: 1.5rem;
     color: black;
-    margin-top: 1rem;
+    margin: 0.5rem;
   }
   
   .divider {
     border-top: 1px solid #343131;
     width: 100%;
-    margin: 0.5rem auto;
   }
   
   .fixed-btn {

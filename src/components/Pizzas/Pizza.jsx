@@ -18,7 +18,7 @@ import CardPizza from '../CardPizza/CardPizza';
     }, []);
 
   return (
-    <div className="contenedor-pizza">
+    <div className="contenedor-pizza d-flex justify-content-center align-items-center min-vh-100">
       {pizza.id ? (
         <CardPizza
           key={pizza.id}

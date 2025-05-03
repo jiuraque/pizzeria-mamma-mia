@@ -15,14 +15,12 @@ const CardPizza = ({ name, price, ingredients, img, desc }) => {
           <p className="card-price">
             <strong>Precio:</strong> ${formatPrice(price)}
           </p>
-        </div>
+       
 
         <hr className="divider" />
 
           <ul className="card-ingredients">
-            {ingredients.map((ing, i) => (
-              <li key={i}>🍕 {ing}</li>
-            ))}
+          🍕{ingredients.join(', ')}
           </ul>
 
           <hr className="divider" />
@@ -31,7 +29,7 @@ const CardPizza = ({ name, price, ingredients, img, desc }) => {
 
           <hr className="divider" />
 
-          <p className="card-desc">{desc}</p>
+          <p className="card-desc">🍕{desc}</p>
 
         <div className="d-flex justify-content-between">
           <button className="btn btn-outline-dark btn-sm fixed-btn">
@@ -40,6 +38,7 @@ const CardPizza = ({ name, price, ingredients, img, desc }) => {
           <button className="btn btn-dark btn-sm fixed-btn">Añadir 🛒</button>
         </div>
       </div>
+    </div>
     </div>
   );
 };
