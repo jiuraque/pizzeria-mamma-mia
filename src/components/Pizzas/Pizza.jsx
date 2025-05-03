@@ -19,6 +19,7 @@ import CardPizza from '../CardPizza/CardPizza';
 
   return (
     <div className="contenedor-pizza">
+      {pizza.id ? (
         <CardPizza
           key={pizza.id}
           id={pizza.id}
@@ -28,6 +29,9 @@ import CardPizza from '../CardPizza/CardPizza';
           ingredients={pizza.ingredients}
           desc={pizza.desc}
         />
+      ) : (
+        <p>Cargando Pizza...</p>
+      )}
     </div>
   );
 }
