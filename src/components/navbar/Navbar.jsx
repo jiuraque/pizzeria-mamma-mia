@@ -3,6 +3,7 @@ import Token from '../../utils/TokenButton';
 import Button from "react-bootstrap/Button";
 import { formatPrice } from "../../utils/FormatPrice";
 import { Navbar as BsNavbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const total = 25000;
@@ -17,13 +18,17 @@ function Navbar() {
 
         <BsNavbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto gap-2">
-            <Button variant="outline-light">🍕 Home</Button>
+          <Link to="/">
+              <Button variant="outline-light">🍕 Home</Button>
+            </Link>
             <Token />
           </Nav>
           <div className="d-flex">
-            <Button variant="outline-primary">
-              🛒 Total: ${formatPrice(total)}
-            </Button>
+          <Link to="/cart">
+              <Button variant="outline-primary">
+                🛒 Total: ${formatPrice(total)}
+              </Button>
+            </Link>
           </div>
         </BsNavbar.Collapse>
       </Container>

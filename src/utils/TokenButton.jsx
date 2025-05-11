@@ -1,32 +1,35 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
-function Token() {
-  const [activo, setActivo] = useState(false);
+function TokenButton() {
+  const [logueada, setLogueada] = useState(false);
+  const navigate = useNavigate();
 
-  const handleClick = () => {
-    setActivo(!activo);
+  const irA = (ruta) => {
+    navigate(ruta);
   };
 
-  const navigate = useNavigate();
+  const cerrarSesion = () => {
+    setLogueada(false);
+    navigate("/login");
+  };
 
   return (
     <>
-    <div>
-      {activo ? (
+      {logueada ? (
         <>
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={handleClick}
+            onClick={() => irA("/profile")}
           >
             🔓 Profile
           </Button>
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={handleClick}
+            onClick={cerrarSesion}
           >
             🔒 Logout
           </Button>
@@ -36,22 +39,25 @@ function Token() {
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={() => navigate('/Login')}
+            onClick={() => {
+              setLogueada(true); 
+              irA("/login");
+            }}
           >
             🔐 Login
           </Button>
           <Button
             variant="outline-light"
             className="me-2"
-            onClick={() => navigate('/Registro')}
+            onClick={() => irA("/Registro")}
           >
             🔐 Register
           </Button>
         </>
       )}
-    </div>
     </>
   );
 }
 
-export default Token;
+export default TokenButton;
+
