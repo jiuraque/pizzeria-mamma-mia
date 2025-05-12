@@ -2,24 +2,13 @@
   width: 100%;
   max-width: 320px;
   height: 580px;
-  border-radius: 1rem;
   margin: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.pizza-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 200px;
 }
 
 .pizza-img {
   height: 200px;
-  width: 100%;
   object-fit: cover;
 }
 
@@ -30,29 +19,54 @@
   justify-content: space-between;
 }
 
+.pizza-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .card-title {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .card-ingredients {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   color: #555;
+  margin: 0.5rem 0;
 }
 
 .card-price {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: black;
-  margin: 0.5rem;
+}
+
+.card-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; 
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-desc.reducida {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-desc.expandida {
+  display: block;
 }
 
 .divider {
   border-top: 1px solid #343131;
-  width: 100%;
+  margin: 0.5rem 0;
 }
 
 .fixed-btn {
   width: 100px;
 }
+
