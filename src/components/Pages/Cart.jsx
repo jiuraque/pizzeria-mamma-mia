@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { pizzaCart as initialCart } from "../../data/pizzas";
+import { formatPrice } from "../../utils/FormatPrice";
 import "../Cart/Cart.css";
 
 const Cart = () => {
   const [cart, setCart] = useState(initialCart);
 
+  const totales = cart.reduce(
+    (suma, pizza) => suma + pizza.price * pizza.count,
+    0
+  );
+
+  useEffect(() => {
+    localStorage.setItem("cartTotal", totales);
+  }, [totales]);
 
   const aumentar = (id) => {
     const nuevoCarrito = cart.map((pizza) => {
@@ -15,7 +24,6 @@ const Cart = () => {
     });
     setCart(nuevoCarrito);
   };
-
 
   const disminuir = (id) => {
     const nuevoCarrito = cart
@@ -30,8 +38,10 @@ const Cart = () => {
     setCart(nuevoCarrito);
   };
 
-
-  const total = cart.reduce((suma, pizza) => suma + pizza.price * pizza.count, 0);
+  const total = cart.reduce(
+    (suma, pizza) => suma + pizza.price * pizza.count,
+    0
+  );
 
   return (
     <div className="cart">
@@ -42,7 +52,7 @@ const Cart = () => {
           <img src={pizza.img} alt={pizza.name} width="80" />
           <div>
             <h4>{pizza.name}</h4>
-            <p>Precio: ${pizza.price.toLocaleString()}</p>
+            <p>Precio: ${formatPrice(pizza.price)}</p>
             <p>Cantidad: {pizza.count}</p>
             <button onClick={() => aumentar(pizza.id)}>➕</button>
             <button onClick={() => disminuir(pizza.id)}>➖</button>
@@ -50,7 +60,7 @@ const Cart = () => {
         </div>
       ))}
 
-      <h3>Total: ${total.toLocaleString()}</h3>
+      <h3>Total: ${formatPrice(totales)}</h3>
       <button className="btn btn-dark">Pagar</button>
     </div>
   );

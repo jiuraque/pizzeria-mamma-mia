@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import "./Navbar.css";
 import Token from '../../utils/TokenButton';
 import Button from "react-bootstrap/Button";
@@ -6,7 +7,14 @@ import { Navbar as BsNavbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const total = 19190;
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const storedTotal = localStorage.getItem("cartTotal");
+    if (storedTotal) {
+      setTotal(Number(storedTotal));
+    }
+  }, []);
 
   return (
     <>
@@ -24,7 +32,7 @@ function Navbar() {
             <Token />
           </Nav>
           <div className="d-flex">
-          <Link to="/cart">
+          <Link to="/Cart">
               <Button variant="outline-primary ">
                 🛒 Total: ${formatPrice(total)}
               </Button>

@@ -21,9 +21,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Registro" element={<Registro />} /> 
         <Route path="/Login" element={<Login />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/Cart" element={<Cart />} />
         <Route path="/pizza/p001" element={<Pizza />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
