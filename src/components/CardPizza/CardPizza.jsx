@@ -5,8 +5,8 @@ import "./CardPizza.css";
 
 const CardPizza = ({ name, price, ingredients, img, desc }) => {
   return (
-    <div className="card card-pizza shadow-sm">
-      <div className="card-body d-flex flex-column justify-content-between">
+    <div className="card card-pizza shadow-sm d-flex">
+      <div className="card-body">
         <div className="pizza-info text-center">
           <h5 className="card-title">{name}</h5>
 

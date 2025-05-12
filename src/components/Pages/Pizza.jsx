@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import CardPizza from '../CardPizza/CardPizza';
 
-
  function Pizza() {
   const [pizza, setPizza] = useState([]);
 
@@ -18,7 +17,7 @@ import CardPizza from '../CardPizza/CardPizza';
     }, []);
 
   return (
-    <div className="contenedor-pizza d-flex justify-content-center align-items-center min-vh-100">
+    <div className="d-flex justify-content-center align-items-center min-vh-100">
       {pizza.id ? (
         <CardPizza
           key={pizza.id}

@@ -1,7 +1,8 @@
 .contenedor-pizza {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 2rem;
+  justify-items: center;
+  align-items: center;
 }

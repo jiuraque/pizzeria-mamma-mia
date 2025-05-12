@@ -6,7 +6,7 @@ import { Navbar as BsNavbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const total = 25000;
+  const total = 19190;
 
   return (
     <>
@@ -25,7 +25,7 @@ function Navbar() {
           </Nav>
           <div className="d-flex">
           <Link to="/cart">
-              <Button variant="outline-primary">
+              <Button variant="outline-primary ">
                 🛒 Total: ${formatPrice(total)}
               </Button>
             </Link>
