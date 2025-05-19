@@ -25,7 +25,7 @@ function Navbar() {
           </Nav>
           <div className="d-flex">
             <Link to="/cart">
-              <Button variant="outline-primary w-100 p-3">
+              <Button variant="outline-primary w-100 p-2">
                 🛒 Total: ${formatPrice(total)}
               </Button>
             </Link>
