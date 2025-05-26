@@ -1,20 +1,41 @@
 import { useState, useEffect } from "react";
 import CardPizza from '../CardPizza/CardPizza';
+import { useParams } from "react-router-dom";
 
- function Pizza() {
-  const [pizza, setPizza] = useState([]);
 
-  const consulApi = async () => {
-    const url = "http://localhost:5000/api/pizzas/p001";
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    setPizza(data)
-  };
+function Pizza() {
+  const { pizaaId } = useParams();
+  const [pizza, setPizza] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    consulApi();
-    }, []);
+    const fetchPizza = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`http://localhost:5000/api/pizzas/p001`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setPizza(data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [pizaaId]);
+
+  if (loading) {
+    return <p>Loading user data...</p>;
+  }
+
+  if (error) {
+   return <p>Error: {error.message}</p>;
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
@@ -34,9 +55,6 @@ import CardPizza from '../CardPizza/CardPizza';
     </div>
   );
 }
-
-
-
 
 
 
