@@ -1,3 +1,3 @@
-# Desafío React 6 - Pizzeria Mamma Mía 
+# Desafío React 7 - Pizzeria Mamma Mía 
 
-En este proyecto se implemento React Context para manejar el carrito de compras de forma global, permitiendo añadir pizzas desde Home, visualizar y modificar el carrito en la página cart, y mostrar el total actualizado también en la Navbar. 
+En este hito se implementó useParams para obtener el id de cada pizza y realizar un fetch a la API. Además se creó un UserContext para manejar el token de autenticación, en donde se mostraba y ocultaba botones en el Navbar según el estado del usuario. Se crearon rutas como /profile y se deshabilitó el botón de pagar en el carrito cuando el usuario no está logueado.
