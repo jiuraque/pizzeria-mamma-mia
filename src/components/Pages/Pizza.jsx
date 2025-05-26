@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 
 function Pizza() {
-  const { pizaaId } = useParams();
+  const { pizzaId } = useParams();
   const [pizza, setPizza] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ function Pizza() {
     const fetchPizza = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:5000/api/pizzas/p001`);
+        const response = await fetch(`http://localhost:5000/api/pizzas/${pizzaId}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -26,11 +26,11 @@ function Pizza() {
       }
     };
 
-    fetchUser();
-  }, [pizaaId]);
+    fetchPizza();
+  }, [pizzaId]);
 
   if (loading) {
-    return <p>Loading user data...</p>;
+    return <p>Cargando pizza...</p>;
   }
 
   if (error) {
