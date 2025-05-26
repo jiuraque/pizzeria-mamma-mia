@@ -8,26 +8,49 @@ import Cart from "./components/Pages/Cart";
 import Registro from "./components/Pages/Registro";
 import Login from "./components/Pages/Login";
 import Pizza from "./components/Pages/Pizza";
-import Profile from "./components/Pages/Profile"
-import NotFound from "./components/Pages/NotFound"
-
+import Profile from "./components/Pages/Profile";
+import NotFound from "./components/Pages/NotFound";
+import PrivateRoute from "./components/Routes/PrivateRoute";
+import PublicRoute from "./components/Routes/PublicRoute";
 
 function App() {
   return (
     <div className="app-wrapper">
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Registro" element={<Registro />} /> 
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Cart" element={<Cart />} />
-        <Route path="/pizza/:pizzaId" element={<Pizza />} />
-        <Route path="/Profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/registro"
+            element={
+              <PublicRoute>
+                <Registro />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+
+          <Route path="/Cart" element={<Cart />} />
+          <Route path="/pizza/:pizzaId" element={<Pizza />} />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }

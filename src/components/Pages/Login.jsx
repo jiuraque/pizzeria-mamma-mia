@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../Context/userContext";
 import "../Login/Login.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { setToken } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const validarDatos = (e) => {
     e.preventDefault();
@@ -16,14 +21,15 @@ const Login = () => {
 
     if (contraseña.length < 6) {
       setErrorMessage("La contraseña debe tener al menos 6 caracteres");
-    } else {
-      setErrorMessage("");
+      return;
     }
 
-    if (contraseña == 123456) {
+    if (contraseña === "123456") {
+      setToken(true); // 
       alert("¡Bienvenido!");
+      navigate("/profile"); 
     } else {
-      alert("Error: Los datos son incorrectos");
+      setErrorMessage("Error: Los datos son incorrectos");
     }
   };
 
