@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { formatPrice } from "../../utils/FormatPrice";
 import "./CardPizza.css";
-import { useCart } from "../../Context/CartContext"; 
+import { useCart } from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 
 const CardPizza = ({ id, name, price, img, ingredients, desc }) => {
   const { addToCart } = useCart();
-  const [expandir, setExpandir] = useState(false); 
+  const [expandir, setExpandir] = useState(false);
 
   return (
     <div className="card card-pizza shadow-sm d-flex flex-column">
@@ -24,7 +25,9 @@ const CardPizza = ({ id, name, price, img, ingredients, desc }) => {
           <hr className="divider" />
 
           <p className="card-ingredients">
-            {ingredients ? `🍕 ${ingredients.join(", ")}` : "Ingredientes no disponibles"}
+            {ingredients
+              ? `🍕 ${ingredients.join(", ")}`
+              : "Ingredientes no disponibles"}
           </p>
 
           <hr className="divider" />
@@ -41,12 +44,16 @@ const CardPizza = ({ id, name, price, img, ingredients, desc }) => {
         </div>
 
         <div className="d-flex justify-content-between mt-3">
-          <button className="btn btn-outline-dark btn-sm fixed-btn">
-            Ver más 👀
-          </button>
+          <Link to={`/pizza/${id}`}>
+            <button className="btn btn-outline-dark btn-sm fixed-btn">
+              Ver más 👀
+            </button>
+          </Link>
           <button
             className="btn btn-dark btn-sm fixed-btn"
-            onClick={() => addToCart({ id, name, price, img, ingredients, desc })}
+            onClick={() =>
+              addToCart({ id, name, price, img, ingredients, desc })
+            }
           >
             Añadir 🛒
           </button>
@@ -57,4 +64,3 @@ const CardPizza = ({ id, name, price, img, ingredients, desc }) => {
 };
 
 export default CardPizza;
-

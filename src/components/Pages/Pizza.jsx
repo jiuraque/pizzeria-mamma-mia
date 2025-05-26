@@ -39,7 +39,7 @@ function Pizza() {
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100">
-      {pizza.id ? (
+      {pizza ? (
         <CardPizza
           key={pizza.id}
           id={pizza.id}
@@ -50,7 +50,7 @@ function Pizza() {
           desc={pizza.desc}
         />
       ) : (
-        <p>Cargando Pizza...</p>
+        <p>Pizza no encontrada.</p>
       )}
     </div>
   );
