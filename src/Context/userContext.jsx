@@ -6,7 +6,6 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [email, setEmail] = useState("");
 
-
   const login = async (credentials) => {
     const res = await fetch("http://localhost:5000/api/auth/login", {
       method: "POST",
@@ -23,23 +22,28 @@ export const UserProvider = ({ children }) => {
     return data;
   };
 
+  const register = async (email, password) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
 
-  const register = async (credentials) => {
-    const res = await fetch("http://localhost:5000/api/auth/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(credentials),
-    });
+      if (data.token) {
+        setToken(data.token);
+        setEmail(data.email);
+        localStorage.setItem("token", data.token);
+        return true;
+      }
 
-    const data = await res.json();
-    if (data.token) {
-      setToken(data.token);
-      setEmail(data.email);
-      localStorage.setItem("token", data.token);
+      return false;
+    } catch (err) {
+      console.error("Error al registrar:", err);
+      return false;
     }
-    return data;
   };
-
 
   const logout = () => {
     setToken("");
@@ -47,7 +51,6 @@ export const UserProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
- 
   const getProfile = async () => {
     const res = await fetch("http://localhost:5000/api/auth/me", {
       headers: {
@@ -61,11 +64,10 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider
-      value={{ token, email, login, register, logout, getProfile }}
-    >
+    <UserContext.Provider value={{ token, email, login, register, logout, getProfile }}>
       {children}
     </UserContext.Provider>
   );
 };
+
 

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../Context/userContext";
 import { useCart } from "../../Context/CartContext";
 import { formatPrice } from "../../utils/FormatPrice";
@@ -7,6 +7,25 @@ import "../Cart/Cart.css";
 const Cart = () => {
   const { cart, increase, decrease, total } = useCart();
   const { token } = useContext(UserContext);
+  const [mensaje, setMensaje] = useState("");
+
+  const pagar = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/api/checkouts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ cart }),
+      });
+
+      const data = await res.json();
+      setMensaje("✅ ¡Compra realizada con éxito!");
+    } catch (err) {
+      setMensaje("❌ Error al realizar la compra");
+    }
+  };
 
   return (
     <div className="cart">
@@ -30,9 +49,12 @@ const Cart = () => {
       )}
 
       <h3>Total: ${formatPrice(total)}</h3>
-      <button className="btn btn-dark" disabled={!token}>
-        Pagar
+
+      <button className="btn btn-dark mt-2" onClick={pagar} disabled={!token || cart.length === 0}>
+        {token ? "Pagar" : "Inicia sesión para pagar"}
       </button>
+
+      {mensaje && <p className="mt-2 mensaje">{mensaje}</p>}
     </div>
   );
 };

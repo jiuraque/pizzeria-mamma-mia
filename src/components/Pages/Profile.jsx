@@ -9,9 +9,9 @@ const Profile = () => {
 
   useEffect(() => {
     if (!token) {
-      navigate("/login"); 
+      navigate("/login");
     } else {
-      getProfile(); 
+      getProfile();
     }
   }, [token]);
 

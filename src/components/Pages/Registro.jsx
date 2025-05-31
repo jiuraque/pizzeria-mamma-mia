@@ -1,16 +1,16 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/userContext";
+import { useNavigate } from "react-router-dom";
 import "../Registro/Registro.css";
 
 const Registro = () => {
-  const { register } = useContext(UserContext);
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [confirmarContraseña, setConfirmarContraseña] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const { register } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const validarDatos = async (e) => {
     e.preventDefault();
@@ -32,13 +32,13 @@ const Registro = () => {
 
     setErrorMessage("");
 
-   
-    const resultado = await register({ email, password: contraseña });
+    
+    const success = await register(email, contraseña);
 
-    if (resultado.token) {
-      navigate("/profile"); 
+    if (success) {
+      navigate("/profile");
     } else {
-      setErrorMessage(resultado.message || "Error al registrar usuario");
+      setErrorMessage("Error al registrar usuario");
     }
   };
 
@@ -47,37 +47,34 @@ const Registro = () => {
       <form className="formulario" onSubmit={validarDatos}>
         {errorMessage && <p className="text-danger">{errorMessage}</p>}
         <h1>Registro</h1>
-
         <div className="form-group">
           <label>Ingresa tu Email:</label>
           <input
             type="email"
+            name="email"
             className="form-control"
-            value={email}
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
-
         <div className="form-group">
-          <label>Ingresa tu Contraseña:</label>
+          <label>Ingresa tu Contraseña: </label>
           <input
             type="password"
             className="form-control"
-            value={contraseña}
             onChange={(e) => setContraseña(e.target.value)}
+            value={contraseña}
           />
         </div>
-
         <div className="form-group">
           <label>Confirma tu Contraseña:</label>
           <input
             type="password"
             className="form-control"
-            value={confirmarContraseña}
             onChange={(e) => setConfirmarContraseña(e.target.value)}
+            value={confirmarContraseña}
           />
         </div>
-
         <button type="submit" className="btn btn-dark">
           Enviar
         </button>
